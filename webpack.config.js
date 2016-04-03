@@ -4,7 +4,7 @@ var CommonsChunkPlugin = require("./lib/optimize/CommonsChunkPlugin");
 module.exports = {
 	entry: {
 		main: './src/main',
-		header: './src/header'
+		redux: './src/redux'
 	},
 	output: {
 		path: path.join(__dirname, "build"),
