@@ -3,14 +3,20 @@ var CommonsChunkPlugin = require("./lib/optimize/CommonsChunkPlugin");
 
 module.exports = {
 	entry: {
-		main: './src/main',
-		redux: './src/redux'
+		main: './src/main-react',
+		main2: './src/main-redux'
 	},
 	output: {
 		path: path.join(__dirname, "build"),
 		publicPath: "/assets/",
 		filename: '[name].bundle.js'
 	},
+	plugins: [
+        new CommonsChunkPlugin({
+            name: "commons",
+            chunks: ["main", "main2"]
+        })
+    ],
 	module: {
 		loaders: [
 			{
