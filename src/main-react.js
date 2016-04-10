@@ -1,3 +1,5 @@
+//require("!style!css!../build/amazeui/css/amazeui.css");
+
 import $ from 'jquery';
 import React from 'react';
 import {render} from 'react-dom';

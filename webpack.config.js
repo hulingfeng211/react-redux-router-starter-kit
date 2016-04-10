@@ -7,8 +7,8 @@ module.exports = {
 		main2: './src/main-redux'
 	},
 	output: {
-		path: path.join(__dirname, "build"),
-		publicPath: "/assets/",
+		path: path.join(__dirname, "dist"),
+		publicPath: "/dist/",
 		filename: '[name].bundle.js'
 	},
 	plugins: [

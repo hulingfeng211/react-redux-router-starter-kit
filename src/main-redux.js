@@ -19,3 +19,5 @@ render(
     </Provider>,
     $('#container')[0]
 );
+
+console.log('redux');

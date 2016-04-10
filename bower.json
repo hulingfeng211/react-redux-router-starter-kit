@@ -1,0 +1,21 @@
+{
+  "name": "learn-webpack",
+  "description": "",
+  "main": "",
+  "authors": [
+    "cnfi <mark.chenfl@alibaba-inc.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/cnfi/webpack-demo",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "amazeui": "~2.6.1"
+  }
+}
