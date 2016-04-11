@@ -6,16 +6,14 @@ export default class AddTodo extends Component {
   render() {
     return (
       <div>
-        <input type='text' ref='input1'  />
-        <Input type="text" ref='input2' onKeyUp={e => this.handleEnter(e)}></Input>
+        <Input type="text" ref='input' onKeyUp={e => this.handleEnter(e)}></Input>
         <Button amStyle="primary"  onClick={e => this.handleClick(e)}>Add</Button>
       </div>
     );
   }
 
   handleClick(e) {
-    console.log(this);
-    const node = ReactDOM.findDOMNode(this.refs.input2);
+    const node = this.refs.input.getFieldDOMNode();
     const text = node.value.trim();
     this.props.onAddClick(text);
     node.value = '';
@@ -23,8 +21,7 @@ export default class AddTodo extends Component {
 
   handleEnter(e) {
     if(e.keyCode === 13){
-      console.log(this.refs.input2);
-      const node = ReactDOM.findDOMNode(this.refs.input2);
+      const node = this.refs.input.getFieldDOMNode();
       const text = node.value.trim();
       this.props.onAddClick(text);
       node.value = '';
