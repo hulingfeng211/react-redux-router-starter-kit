@@ -20,4 +20,4 @@ render(
     $('#container')[0]
 );
 
-console.log('redux');
+console.log('redux started');

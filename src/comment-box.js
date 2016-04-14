@@ -18,7 +18,7 @@ var Comment = React.createClass({
 				</h2>
 				<span dangerouslySetInnerHTML={this.rawMarkup()} />
 			</div>
-            );
+        );
     }
 });
 
@@ -35,7 +35,7 @@ var CommentList = React.createClass({
             <div className="commentList">
 				{commentNodes}
 			</div>
-            );
+        );
     }
 });
 
