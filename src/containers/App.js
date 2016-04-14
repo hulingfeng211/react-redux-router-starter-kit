@@ -7,6 +7,8 @@ import AddTodo from '../components/AddTodo';
 import TodoList from '../components/TodoList';
 import Footer from '../components/Footer';
 
+import DevTools from './DevTools';
+
 export default class App extends Component {
   render() {
     // 通过调用 connect() 注入:
@@ -28,6 +30,7 @@ export default class App extends Component {
           onFilterChange={nextFilter =>
             dispatch(setVisibilityFilter(nextFilter))
           } />
+        <DevTools />
       </div>
     );
   }
