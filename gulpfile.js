@@ -8,13 +8,16 @@ var runSequence = require('run-sequence');
 var webpackConfig = require("./webpack.config.js");
 
 //默认
-gulp.task('default', ['webpack-dev-server', 'style', 'watch']);
+gulp.task('default', (cb) => {
+	runSequence('clean', ['webpack-dev-server', 'style', 'amazeui-to-dist', 'watch'], cb);
+});
 
 //css
 gulp.task('style', function(){
 	gulp.src('./src/style/*.css')
 		.pipe(gulp.dest('./dist/style/'))
 });
+
 //amazeui lib
 gulp.task('amazeui-to-dist', function(){
 	gulp.src('./src/style/amazeui/**/*')
