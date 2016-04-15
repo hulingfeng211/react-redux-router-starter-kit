@@ -11,7 +11,7 @@ const DevTools = createDevTools(
                defaultIsVisible={true}
                defaultPosition='bottom'
                defaultSize={0.3}>
-    <LogMonitor theme='tomorrow' />
+    <SliderMonitor />
   </DockMonitor>
 );
 

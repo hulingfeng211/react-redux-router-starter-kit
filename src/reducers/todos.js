@@ -1,8 +1,13 @@
-import { ADD_TODO, COMPLETE_TODO, REQUEST_TODOS } from '../actions';
+import { ADD_TODO, COMPLETE_TODO, REQUEST_TODOS, RECEIVE_TODOS } from '../actions';
 
 export default function todos(state = [], action) {
   switch (action.type) {
     case REQUEST_TODOS:
+
+      return state;
+
+    case RECEIVE_TODOS:
+
       return action.todos;
 
     case ADD_TODO:

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Router, Route, Link } from 'react-router'
-import { getTodos, addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from '../actions';
+import { fetchTodos, addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from '../actions';
 
 import AddTodo from '../components/AddTodo';
 import TodoList from '../components/TodoList';
@@ -10,26 +10,34 @@ import Footer from '../components/Footer';
 import DevTools from './DevTools';
 
 export default class App extends Component {
+  componentDidMount() {
+    console.log('componentDidMount');
+    const { dispatch } = this.props;
+
+    dispatch(fetchTodos());
+
+  }
   render() {
     // 通过调用 connect() 注入:
     const { dispatch, visibleTodos, visibilityFilter } = this.props;
 
     return (
       <div>
-        <AddTodo
-          onAddClick={text =>
-            dispatch(addTodo(text))
-          } />
         <TodoList
           todos={visibleTodos}
           onTodoClick={index =>
             dispatch(completeTodo(index))
           } />
-        <Footer
+          <Footer
           filter={visibilityFilter}
           onFilterChange={nextFilter =>
             dispatch(setVisibilityFilter(nextFilter))
           } />
+          <AddTodo
+          onAddClick={text =>
+            dispatch(addTodo(text))
+          } />
+        
         <DevTools />
       </div>
     );

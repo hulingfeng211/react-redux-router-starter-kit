@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import fetch from 'isomorphic-fetch';
 
 /*
@@ -41,13 +42,18 @@ export function fetchTodos() {
 	return function(dispatch) {
 		dispatch(requestTodos());
 
-		return fetch('/getData.json')
-			.then(response => response.json())
-			.then(json =>
-				// 可以多次 dispatch！
-				// 这里，使用 API 请求结果来更新应用的 state。
-				dispatch(receiveTodos(subreddit, json))
-			)
+		$.get({
+			dataType: 'text',
+			url: '/dist/getData.json',
+			success: function(data, textStatus, jqXHR){
+				
+				var todosData = $.parseJSON(data);
+				dispatch(receiveTodos(todosData.todos));
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.log('error', jqXHR, textStatus, errorThrown)
+			}
+		});
 	}
 };
 
