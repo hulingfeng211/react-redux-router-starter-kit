@@ -13,10 +13,12 @@ gulp.task('style', function(){
 		.pipe(gulp.dest('./dist/style/'))
 });
 
-//amazeui lib
+//amazeui style
 gulp.task('amazeui-to-dist', function(){
 	gulp.src('./src/style/amazeui/**/*')
 		.pipe(gulp.dest('./dist/style/amazeui/'))
+	gulp.src('./src/style/amazeui-touch/**/*')
+		.pipe(gulp.dest('./dist/style/amazeui-touch/'))
 });
 
 //mock data

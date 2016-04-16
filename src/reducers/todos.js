@@ -11,11 +11,10 @@ export default function todos(state = [], action) {
       return action.todos;
 
     case ADD_TODO:
-      console.log(state);
-      return [...state, {
+      return [{
         text: action.text,
         completed: false
-      }];
+      }, ...state];
 
     case COMPLETE_TODO:
       console.log(state);

@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
-import {Button, Input, Grid, Col} from 'amazeui-react';
+import { Input, Grid, Col} from 'amazeui-react';
+import {Button} from 'amazeui-touch';
+
 
 export default class AddTodo extends Component {
   render() {

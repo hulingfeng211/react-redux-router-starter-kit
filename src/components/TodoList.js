@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
-import {List, Grid, Col} from 'amazeui-react';
+import {List, Grid, Col} from 'amazeui-touch';
 
 import Todo from './Todo';
 
@@ -9,7 +9,7 @@ export default class TodoList extends Component {
     return (
       <Grid className="doc-g">
           <Col sm={12}>
-            <List static striped border>
+            <List>
               {this.props.todos.map((todo, index) =>
                 <Todo {...todo}
                       key={index}

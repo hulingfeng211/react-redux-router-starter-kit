@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import {List, Grid, Col} from 'amazeui-touch';
 
 export default class Footer extends Component {
   renderFilter(filter, name) {
@@ -18,7 +19,8 @@ export default class Footer extends Component {
 
   render() {
     return (
-      <p>
+      <Grid className="doc-g">
+          <Col sm={12}>
         Show:
         {' '}
         {this.renderFilter('SHOW_ALL', 'All')}
@@ -27,7 +29,8 @@ export default class Footer extends Component {
         {', '}
         {this.renderFilter('SHOW_ACTIVE', 'Active')}
         .
-      </p>
+          </Col>
+      </Grid>
     );
   }
 }

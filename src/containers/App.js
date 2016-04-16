@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Router, Route, Link } from 'react-router'
+import { Container, Group, TabBar, NavBar, View} from 'amazeui-touch'
+
 import { fetchTodos, addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from '../actions';
 
 import AddTodo from '../components/AddTodo';
@@ -21,22 +23,46 @@ export default class App extends Component {
     const { dispatch, visibleTodos, visibilityFilter } = this.props;
 
     return (
-      <div>
-        <TodoList
-          todos={visibleTodos}
-          onTodoClick={index =>
-            dispatch(completeTodo(index))
-          } />
+      <View id="app-index">
+      
+        <NavBar
+          amStyle="primary"
+          title="Amaze UI Touch"
+        />
+       
+        <Container direction="column" id="container" scrollable>
+          <Group>
+            <TodoList
+              todos={visibleTodos}
+              onTodoClick={index =>
+                dispatch(completeTodo(index))
+              } />
+            </Group>
+        </Container>
+        <Group>
+        <AddTodo
+            onAddClick={text =>
+              dispatch(addTodo(text))
+            } />
           <Footer
-          filter={visibilityFilter}
-          onFilterChange={nextFilter =>
-            dispatch(setVisibilityFilter(nextFilter))
-          } />
-          <AddTodo
-          onAddClick={text =>
-            dispatch(addTodo(text))
-          } />
-      </div>
+            filter={visibilityFilter}
+            onFilterChange={nextFilter =>
+              dispatch(setVisibilityFilter(nextFilter))
+            } />
+          </Group>
+        <TabBar amStyle="primary" >
+          <TabBar.Item
+            icon="list"
+            title="组件"
+            to="/"
+          />
+          <TabBar.Item
+            icon="info"
+            title="关于"
+            badge='99'
+          />
+        </TabBar>
+      </View>
     );
   }
 }

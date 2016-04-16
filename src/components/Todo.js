@@ -1,18 +1,17 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
-import {ListItem} from 'amazeui-react';
+import {List, Grid, Col} from 'amazeui-touch';
 
 export default class Todo extends Component {
   render() {
     return (
-      <ListItem
+      <List.Item
         onClick={this.props.onClick}
         style={{
           textDecoration: this.props.completed ? 'line-through' : 'none',
           cursor: this.props.completed ? 'default' : 'pointer'
-        }}>
-        {this.props.text}
-      </ListItem>
+        }}
+        title={this.props.text} />
     );
   }
 }
