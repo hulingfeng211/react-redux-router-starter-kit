@@ -28,7 +28,6 @@ export default function todos(state = [], action) {
       ];
 
     default:
-      console.log(state);
       return state;
   }
 }

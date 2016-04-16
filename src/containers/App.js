@@ -11,7 +11,6 @@ import DevTools from './DevTools';
 
 export default class App extends Component {
   componentDidMount() {
-    console.log('componentDidMount');
     const { dispatch } = this.props;
 
     dispatch(fetchTodos());
@@ -37,8 +36,6 @@ export default class App extends Component {
           onAddClick={text =>
             dispatch(addTodo(text))
           } />
-        
-        <DevTools />
       </div>
     );
   }

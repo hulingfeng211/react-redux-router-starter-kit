@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import fetch from 'isomorphic-fetch';
 
 /*
@@ -41,19 +40,9 @@ function receiveTodos(todos) {
 export function fetchTodos() {
 	return function(dispatch) {
 		dispatch(requestTodos());
-
-		$.get({
-			dataType: 'text',
-			url: '/dist/getData.json',
-			success: function(data, textStatus, jqXHR){
-				
-				var todosData = $.parseJSON(data);
-				dispatch(receiveTodos(todosData.todos));
-			},
-			error: function(jqXHR, textStatus, errorThrown){
-				console.log('error', jqXHR, textStatus, errorThrown)
-			}
-		});
+		fetch('/dist/getData.json')
+		.then(response => response.json())
+		.then(json => dispatch(receiveTodos(json.todos)))
 	}
 };
 
