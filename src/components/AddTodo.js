@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
-import { Input, Grid, Col} from 'amazeui-react';
-import {Button} from 'amazeui-touch';
+import {Button, Grid, Col, Field} from 'amazeui-touch';
 
 
 export default class AddTodo extends Component {
@@ -10,7 +9,7 @@ export default class AddTodo extends Component {
       <div>
         <Grid className="doc-g">
           <Col sm={8}>
-            <Input type="text" ref='input' onKeyUp={e => this.handleEnter(e)}></Input>
+            <Field type="text" ref='input' onKeyUp={e => this.handleEnter(e)}></Field>
           </Col>
           <Col sm={4}>
             <Button amStyle="primary"  onClick={e => this.handleClick(e)}>Add</Button>
@@ -21,16 +20,14 @@ export default class AddTodo extends Component {
   }
 
   handleClick(e) {
-    const node = this.refs.input.getFieldDOMNode();
-    const text = node.value.trim();
+    const text = this.refs.input.getValue().trim();
     this.props.onAddClick(text);
     node.value = '';
   }
 
   handleEnter(e) {
     if(e.keyCode === 13){
-      const node = this.refs.input.getFieldDOMNode();
-      const text = node.value.trim();
+      const text = this.refs.input.getValue().trim();
       this.props.onAddClick(text);
       node.value = '';
     }
