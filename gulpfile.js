@@ -7,11 +7,6 @@ var runSequence = require('run-sequence');
 
 var webpackConfig = require("./webpack.config.js");
 
-//默认
-gulp.task('default', (cb) => {
-	runSequence('clean', ['webpack-dev-server', 'style', 'amazeui-to-dist', 'watch'], cb);
-});
-
 //css
 gulp.task('style', function(){
 	gulp.src('./src/style/*.css')
@@ -22,6 +17,12 @@ gulp.task('style', function(){
 gulp.task('amazeui-to-dist', function(){
 	gulp.src('./src/style/amazeui/**/*')
 		.pipe(gulp.dest('./dist/style/amazeui/'))
+});
+
+//mock data
+gulp.task('mock-data', function(){
+	gulp.src('./src/mock/getData.json')
+		.pipe(gulp.dest('./dist/'))
 });
 
 // 监视源文件变化自动编译
@@ -50,11 +51,6 @@ gulp.task("webpack-dev-server", function(callback) {
         // keep the server alive or continue?
         // callback();
     });
-});
-
-// Production build
-gulp.task("build", (cb) => {
-	runSequence('clean', ['webpack:build', 'style', 'amazeui-to-dist'], cb);
 });
 
 gulp.task("webpack:build", function(callback) {
@@ -87,3 +83,12 @@ gulp.task('clean', () => {
 });
 
 
+//默认
+gulp.task('default', (cb) => {
+	runSequence('clean', ['webpack-dev-server', 'style', 'amazeui-to-dist', 'mock-data', 'watch'], cb);
+});
+
+// Production build
+gulp.task("build", (cb) => {
+	runSequence('clean', ['webpack:build', 'style', 'amazeui-to-dist', 'mock-data'], cb);
+});
