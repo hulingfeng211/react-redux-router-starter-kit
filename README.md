@@ -1,14 +1,14 @@
-安装依赖：
+install the files required：
 ```
 npm install
 ```
 
-启动demo：
+run the demo：
 ```
 npm start
 ```
 
-打包文件：
+build packages：
 ```
 npm run build
 ```
