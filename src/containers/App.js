@@ -1,22 +1,21 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { Router, Route, Link } from 'react-router'
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import { Container, Group, TabBar, NavBar, View} from 'amazeui-touch'
 
 import { fetchTodos, addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from '../actions';
 
 import AddTodo from '../components/AddTodo';
 import TodoList from '../components/TodoList';
+import Filter from '../components/Filter';
 import Footer from '../components/Footer';
 
 import DevTools from './DevTools';
 
-export default class App extends Component {
+class App extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
-
     dispatch(fetchTodos());
-
   }
   render() {
     // 通过调用 connect() 注入:
@@ -24,44 +23,19 @@ export default class App extends Component {
 
     return (
       <View id="app-index">
-      
-        <NavBar
-          amStyle="primary"
-          title="Amaze UI Touch"
-        />
-       
-        <Container direction="column" id="container" scrollable>
-          <Group>
-            <TodoList
-              todos={visibleTodos}
-              onTodoClick={index =>
-                dispatch(completeTodo(index))
-              } />
+        <NavBar amStyle="primary" title="Onepage 3.0 Touch" />
+        <Container direction="column" id="container" >
+          <Container scrollable>
+            <Group>
+              <TodoList todos={visibleTodos} onTodoClick={index => dispatch(completeTodo(index)) } />
             </Group>
+            <Group>
+              <AddTodo onAddClick={text => dispatch(addTodo(text)) } />
+              <Filter filter={visibilityFilter} onFilterChange={nextFilter => dispatch(setVisibilityFilter(nextFilter)) } />
+            </Group>
+          </Container>
+          <Footer />
         </Container>
-        <Group>
-        <AddTodo
-            onAddClick={text =>
-              dispatch(addTodo(text))
-            } />
-          <Footer
-            filter={visibilityFilter}
-            onFilterChange={nextFilter =>
-              dispatch(setVisibilityFilter(nextFilter))
-            } />
-          </Group>
-        <TabBar amStyle="primary" >
-          <TabBar.Item
-            icon="list"
-            title="组件"
-            to="/"
-          />
-          <TabBar.Item
-            icon="info"
-            title="关于"
-            badge='99'
-          />
-        </TabBar>
       </View>
     );
   }
@@ -78,6 +52,16 @@ App.propTypes = {
     'SHOW_ACTIVE'
   ]).isRequired
 }
+
+const AppWrap = React.createClass({
+  render() {
+    return (
+      <Router history={hashHistory} >
+        <Route path="/" component={App} />
+      </Router>
+    )
+  }
+});
 
 function selectTodos(todos, filter) {
   switch (filter) {

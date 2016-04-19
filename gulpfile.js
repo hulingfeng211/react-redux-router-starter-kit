@@ -41,10 +41,8 @@ gulp.task("webpack-dev-server", function(callback) {
 
     new WebpackDevServer(compiler, {
     	publicPath: webpackConfig.output.publicPath,
-    	stats: {
-			colors: true
-		}
-        // server and middleware options
+    	stats: { colors: true },
+		noInfo:true
     }).listen(8080, "localhost", function(err) {
         if(err) throw new gutil.PluginError("webpack-dev-server", err);
         // Server listening

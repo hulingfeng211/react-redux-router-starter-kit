@@ -3,8 +3,7 @@ var CommonsChunkPlugin = require("./lib/optimize/CommonsChunkPlugin");
 
 module.exports = {
 	entry: {
-		main: './src/main-react',
-		main2: './src/main'
+		main: './src/main'
 	},
 	output: {
 		path: path.join(__dirname, "dist"),
@@ -14,7 +13,7 @@ module.exports = {
 	plugins: [
         new CommonsChunkPlugin({
             name: "commons",
-            chunks: ["main", "main2"]
+            chunks: ["main"]
         })
     ],
 	module: {

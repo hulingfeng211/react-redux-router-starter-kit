@@ -1,45 +1,17 @@
 import React, { Component, PropTypes } from 'react';
-import {List, Grid, Col} from 'amazeui-touch';
+import { TabBar} from 'amazeui-touch'
 
-export default class Footer extends Component {
-  renderFilter(filter, name) {
-    if (filter === this.props.filter) {
-      return name;
-    }
-
-    return (
-      <a href='#' onClick={e => {
-        e.preventDefault();
-        this.props.onFilterChange(filter);
-      }}>
-        {name}
-      </a>
-    )
-  }
-
+class Footer extends Component {
   render() {
     return (
-      <Grid className="doc-g">
-          <Col sm={12}>
-        Show:
-        {' '}
-        {this.renderFilter('SHOW_ALL', 'All')}
-        {', '}
-        {this.renderFilter('SHOW_COMPLETED', 'Completed')}
-        {', '}
-        {this.renderFilter('SHOW_ACTIVE', 'Active')}
-        .
-          </Col>
-      </Grid>
+    <TabBar amStyle="primary" >
+      <TabBar.Item active icon="home" badge={5} title="首页" to="/home" />
+      <TabBar.Item icon="list" title="商品" />
+      <TabBar.Item icon="person" title="联系人" />
+      <TabBar.Item icon="gear" title="设置" />
+    </TabBar>
     );
   }
 }
 
-Footer.propTypes = {
-  onFilterChange: PropTypes.func.isRequired,
-  filter: PropTypes.oneOf([
-    'SHOW_ALL',
-    'SHOW_COMPLETED',
-    'SHOW_ACTIVE'
-  ]).isRequired
-};
+export default Footer;

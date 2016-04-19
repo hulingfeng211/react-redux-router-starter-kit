@@ -20,6 +20,7 @@ export default class AddTodo extends Component {
   }
 
   handleClick(e) {
+    const node = this.refs.input.getFieldDOMNode();
     const text = this.refs.input.getValue().trim();
     this.props.onAddClick(text);
     node.value = '';
@@ -27,6 +28,7 @@ export default class AddTodo extends Component {
 
   handleEnter(e) {
     if(e.keyCode === 13){
+      const node = this.refs.input.getFieldDOMNode();
       const text = this.refs.input.getValue().trim();
       this.props.onAddClick(text);
       node.value = '';
