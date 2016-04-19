@@ -7,13 +7,14 @@ import { syncHistoryWithStore } from 'react-router-redux'
 
 import configureStore from './store/configureStore';
 import App from './containers/App';
+import routes from './routes';
 
-const store = configureStore();
+const store = configureStore(browserHistory, window.__initialState__);
 const history = syncHistoryWithStore(browserHistory, store)
 
 render(
     <Provider store={store}>
-    	<App />
+    	<Router history={history} routes={routes} />
     </Provider>,
     document.getElementById('container')
 );

@@ -22,20 +22,24 @@ class AddTodo extends Component {
     );
   }
 
-  handleClick(e) {
-    const node = this.refs.input.getFieldDOMNode();
-    const text = this.refs.input.getValue().trim();
-    this.onAddClick(text);
-    node.value = '';
+  handleClick() {
+    this.addTodo();
   }
 
   handleEnter(e) {
     if(e.keyCode === 13){
+      this.addTodo();
+    }
+  }
+
+  addTodo(){
       const node = this.refs.input.getFieldDOMNode();
       const text = this.refs.input.getValue().trim();
+      
+      if(text === '') return
+
       this.onAddClick(text);
       node.value = '';
-    }
   }
 
   onAddClick(text){
