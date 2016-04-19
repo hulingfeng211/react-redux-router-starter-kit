@@ -1,23 +1,35 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import {List, Grid, Col} from 'amazeui-touch';
 
-export default class Filter extends Component {
+import { setVisibilityFilter } from '../actions';
+
+class Filter extends Component {
   renderFilter(filter, name) {
-    if (filter === this.props.filter) {
+    if (filter === this.props.visibilityFilter) {
       return name;
     }
 
     return (
       <a href='#' onClick={e => {
         e.preventDefault();
-        this.props.onFilterChange(filter);
+        this.onFilterChange(filter);
       }}>
         {name}
       </a>
     )
   }
 
+  onFilterChange(nextFilter){
+
+    // 通过调用 connect() 注入:
+    const { dispatch } = this.props;
+
+    return dispatch(setVisibilityFilter(nextFilter))
+  }
+
   render() {
+    
     return (
       <Grid className="doc-g">
           <Col sm={12}>
@@ -35,11 +47,11 @@ export default class Filter extends Component {
   }
 }
 
-Filter.propTypes = {
-  onFilterChange: PropTypes.func.isRequired,
-  filter: PropTypes.oneOf([
-    'SHOW_ALL',
-    'SHOW_COMPLETED',
-    'SHOW_ACTIVE'
-  ]).isRequired
-};
+
+function select(state) {
+  return {
+    visibilityFilter: state.visibilityFilter
+  };
+}
+
+export default connect(select)(Filter);

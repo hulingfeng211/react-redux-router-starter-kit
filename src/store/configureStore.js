@@ -7,7 +7,7 @@ import DevTools from '../containers/DevTools';
 
 export default function configureStore(initialState) {
 
-  	const enhancer = compose(
+	const enhancer = compose(
 		applyMiddleware(thunkMiddleware)
 		//,DevTools.instrument()
 	);
