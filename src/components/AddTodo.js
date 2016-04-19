@@ -1,9 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import {Button, Grid, Col, Field} from 'amazeui-touch';
+import { connect } from 'react-redux';
 
+import { addTodo } from '../actions';
 
-export default class AddTodo extends Component {
+class AddTodo extends Component {
+
   render() {
     return (
       <div>
@@ -22,7 +25,7 @@ export default class AddTodo extends Component {
   handleClick(e) {
     const node = this.refs.input.getFieldDOMNode();
     const text = this.refs.input.getValue().trim();
-    this.props.onAddClick(text);
+    this.onAddClick(text);
     node.value = '';
   }
 
@@ -30,12 +33,16 @@ export default class AddTodo extends Component {
     if(e.keyCode === 13){
       const node = this.refs.input.getFieldDOMNode();
       const text = this.refs.input.getValue().trim();
-      this.props.onAddClick(text);
+      this.onAddClick(text);
       node.value = '';
     }
   }
+
+  onAddClick(text){
+    const { dispatch } = this.props;
+
+    dispatch(addTodo(text));
+  }
 }
 
-AddTodo.propTypes = {
-  onAddClick: PropTypes.func.isRequired
-}
+export default connect()(AddTodo);

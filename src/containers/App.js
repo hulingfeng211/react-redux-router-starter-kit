@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import { Container, Group, TabBar, NavBar, View} from 'amazeui-touch'
 
-import { fetchTodos, addTodo } from '../actions';
+import { fetchTodos } from '../actions';
 
 import AddTodo from '../components/AddTodo';
 import TodoList from '../components/TodoList';
@@ -18,8 +18,6 @@ class App extends Component {
     dispatch(fetchTodos());
   }
   render() {
-    // 通过调用 connect() 注入:
-    const { dispatch } = this.props;
 
     return (
       <View id="app-index">
@@ -30,7 +28,7 @@ class App extends Component {
               <TodoList />
             </Group>
             <Group>
-              <AddTodo onAddClick={text => dispatch(addTodo(text)) } />
+              <AddTodo />
             </Group>
             <Filter />
           </Container>
