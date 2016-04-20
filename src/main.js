@@ -9,7 +9,7 @@ import configureStore from './store/configureStore';
 import App from './containers/App';
 import routes from './routes';
 
-const store = configureStore(browserHistory, window.__initialState__);
+const store = configureStore(browserHistory);
 const history = syncHistoryWithStore(browserHistory, store)
 
 render(

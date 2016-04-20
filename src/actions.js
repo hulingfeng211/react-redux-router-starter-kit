@@ -9,6 +9,7 @@ export const RECEIVE_TODOS = 'RECEIVE_TODOS';
 export const ADD_TODO = 'ADD_TODO';
 export const COMPLETE_TODO = 'COMPLETE_TODO';
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
+export const SET_CURRENT_TAB = 'SET_CURRENT_TAB';
 
 /*
  * 其它的常量
@@ -40,7 +41,7 @@ function receiveTodos(todos) {
 export function fetchTodos() {
 	return function(dispatch) {
 		dispatch(requestTodos());
-		fetch('/dist/getData.json')
+		fetch('/dist/getInquiries.json')
 		.then(response => response.json())
 		.then(json => dispatch(receiveTodos(json.todos)))
 	}
@@ -66,4 +67,11 @@ export function completeTodo(index) {
 
 export function setVisibilityFilter(filter) {
 	return {type: SET_VISIBILITY_FILTER, filter}
+}
+
+export function setCurrentTab(tab) {
+	return {
+		type: SET_CURRENT_TAB,
+		tab
+	}
 }

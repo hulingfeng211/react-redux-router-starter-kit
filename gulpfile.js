@@ -23,7 +23,7 @@ gulp.task('amazeui-to-dist', function(){
 
 //mock data
 gulp.task('mock-data', function(){
-	gulp.src('./src/mock/getData.json')
+	gulp.src('./src/mock/*.json')
 		.pipe(gulp.dest('./dist/'))
 });
 
