@@ -1,5 +1,28 @@
 {
-	"todos": [{
+	"inquiries": [{
+		"text":"owen",
+		"completed": false
+	},
+	{
+		"text":"henry",
+		"completed": false
+	},
+	{
+		"text":"mesi",
+		"completed": false
+	},{
+		"text":"owen1",
+		"completed": false
+	},
+	{
+		"text":"henry2",
+		"completed": false
+	},
+	{
+		"text":"mesi3",
+		"completed": false
+	},
+	{
 		"text":"owen",
 		"completed": false
 	},

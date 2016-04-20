@@ -17,7 +17,6 @@ export default function todos(state = [], action) {
       }, ...state];
 
     case COMPLETE_TODO:
-      console.log(state);
       return [
         ...state.slice(0, action.index),
         Object.assign({}, state[action.index], {

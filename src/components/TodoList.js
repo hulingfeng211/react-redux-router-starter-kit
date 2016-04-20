@@ -19,23 +19,21 @@ export default class TodoList extends Component {
   }
 
   render() {
-
     // 通过调用 connect() 注入:
     const { dispatch, visibleTodos } = this.props;
 
     return (
       <Grid className="doc-g">
-          <Col sm={12}>
-            <List>
-              {visibleTodos.map((todo, index) =>
-                <Todo {...todo}
-                      key={index}
-                      onClick={() => this.onTodoClick(index)} />
-              )}
-            </List>
-          </Col>
-        </Grid>
-      
+        <Col sm={12}>
+          <List>
+            {visibleTodos.map((todo, index) =>
+              <Todo {...todo}
+                    key={index}
+                    onClick={() => this.onTodoClick(index)} />
+            )}
+          </List>
+        </Col>
+      </Grid>
     )
   }
 }

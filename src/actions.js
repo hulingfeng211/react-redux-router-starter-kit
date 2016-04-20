@@ -10,6 +10,8 @@ export const ADD_TODO = 'ADD_TODO';
 export const COMPLETE_TODO = 'COMPLETE_TODO';
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
 export const SET_CURRENT_TAB = 'SET_CURRENT_TAB';
+export const REQUEST_INQUIRIES = 'REQUEST_INQUIRIES';
+export const RECEIVE_INQUIRIES = 'RECEIVE_INQUIRIES';
 
 /*
  * 其它的常量
@@ -41,7 +43,7 @@ function receiveTodos(todos) {
 export function fetchTodos() {
 	return function(dispatch) {
 		dispatch(requestTodos());
-		fetch('/dist/getInquiries.json')
+		fetch('/dist/getTodos.json')
 		.then(response => response.json())
 		.then(json => dispatch(receiveTodos(json.todos)))
 	}
@@ -75,3 +77,25 @@ export function setCurrentTab(tab) {
 		tab
 	}
 }
+
+function requestInquiries() {
+	return {
+		type: REQUEST_INQUIRIES
+	}
+};
+
+function receiveInquiries(inquiries) {
+	return {
+		type: RECEIVE_INQUIRIES,
+		inquiries
+	}
+};
+
+export function fetchInquiries() {
+	return function(dispatch) {
+		dispatch(requestInquiries());
+		fetch('/dist/getInquiries.json')
+		.then(response => response.json())
+		.then(json => dispatch(receiveInquiries(json.inquiries)))
+	}
+};
