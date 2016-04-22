@@ -1,22 +1,3 @@
 .app-container {
 	
 }
-
-/* 以编写名为 `fade` 的动画为例 */
-.view-transition-fade-enter {
-  opacity: 0.01;
-}
-
-.view-transition-fade-enter.view-transition-fade-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
-.view-transition-fade-leave {
-  opacity: 1;
-}
-
-.view-transition-fade-leave.view-transition-fade-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
-}
