@@ -11,13 +11,20 @@ class App extends Component {
       super(props)
     }
     render() {
+      let {
+      location,
+      params,
+      children
+      } = this.props;
+
+      let transition = children.props.transition || 'sfr';
 
       return (
         <View id="app-index">
-          <NavBar amStyle="primary" title="Onepage 3.0 Touch" />
-          <Container direction="column" id="container" >
-            <Container scrollable>
-              {this.props.children}
+          
+          <Container direction="column" id="container">
+            <Container transition={transition} >
+              {React.cloneElement(children, {key: location.key})}
             </Container>
             <Footer />
           </Container>

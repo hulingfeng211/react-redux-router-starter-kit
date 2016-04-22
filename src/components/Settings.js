@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Group } from 'amazeui-touch'
+import { Group, Container } from 'amazeui-touch'
 
 import AddTodo from './AddTodo';
 import TodoList from './TodoList';
@@ -8,7 +8,7 @@ import Filter from './Filter';
 class Settings extends Component {
     render() {
       return (
-        <div>
+        <Container>
         	<Filter />
         	<Group>
 				<TodoList />
@@ -16,7 +16,7 @@ class Settings extends Component {
 			<Group>
 				<AddTodo />
 			</Group>
-		</div>
+		</Container>
       )
     }
 }
