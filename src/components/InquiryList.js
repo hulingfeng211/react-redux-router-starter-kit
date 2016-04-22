@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
-import {List, Group } from 'amazeui-touch';
+
+import { List, Group, Container, NavBar, View } from 'amazeui-touch';
 
 import { fetchInquiries } from '../actions';
 
@@ -16,7 +17,8 @@ class InquiryList extends Component {
     // 通过调用 connect() 注入:
     const { dispatch, inquiries } = this.props;
     return (
-            <Group
+        <Container {...this.props}>
+          <Group
               header="xxxx列表1"
               noPadded
             >
@@ -26,6 +28,7 @@ class InquiryList extends Component {
               )}
             </List>
             </Group>
+        </Container>
     )
   }
 }

@@ -6,8 +6,10 @@ import InquiryList from './InquiryList';
 class Home extends Component {
 
   render() {
+    let component = this.props.params.component;
+
     return (
-      <View id="app-index"  transition={"rfr"}>
+      <View id="app-index">
         <NavBar amStyle="primary" title="Onepage 3.0 Touch" />
         <Container scrollable >
           <InquiryList />

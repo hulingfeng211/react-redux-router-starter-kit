@@ -1,19 +1,16 @@
-import React from 'react'
+import React, {Component} from 'react'
 import { Route, IndexRoute, Link } from 'react-router'
+import { Group, Container, NavBar, View } from 'amazeui-touch';
 
 import App from './containers/App';
 import Home from './components/Home';
-import Products from './components/Products';
-import Persons from './components/Persons';
-import Settings from './components/Settings';
+import Detail from './components/Detail';
 
 const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Home}/>
-    <Route path="products" component={Products}/>
-    <Route path="Persons" component={Persons}/>
-    <Route path="Settings" component={Settings}/>
+    <Route path=":component" component={Detail}/>
   </Route>
 )
 
-export default routes
+export default routes;

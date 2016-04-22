@@ -7,14 +7,13 @@ import Footer from '../components/Footer';
 import DevTools from './DevTools';
 
 class App extends Component {
-    constructor(props) {
-      super(props)
-    }
+
     render() {
       let {
       location,
       params,
-      children
+      children,
+      ...props
       } = this.props;
 
       let transition = children.props.transition || 'sfr';
@@ -26,7 +25,7 @@ class App extends Component {
             <Container transition={transition} >
               {React.cloneElement(children, {key: location.key})}
             </Container>
-            <Footer />
+            <Footer {...this.props} />
           </Container>
         </View>
       );

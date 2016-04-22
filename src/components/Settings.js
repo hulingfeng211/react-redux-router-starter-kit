@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Group, Container } from 'amazeui-touch'
+import { Group, Container, NavBar, View } from 'amazeui-touch';
+import { Link } from 'react-router';
 
 import AddTodo from './AddTodo';
 import TodoList from './TodoList';
@@ -7,8 +8,9 @@ import Filter from './Filter';
 
 class Settings extends Component {
     render() {
+		
       return (
-        <Container>
+        <Container {...this.props}>
         	<Filter />
         	<Group>
 				<TodoList />

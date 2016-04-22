@@ -9,7 +9,6 @@ export const RECEIVE_TODOS = 'RECEIVE_TODOS';
 export const ADD_TODO = 'ADD_TODO';
 export const COMPLETE_TODO = 'COMPLETE_TODO';
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
-export const SET_CURRENT_TAB = 'SET_CURRENT_TAB';
 export const REQUEST_INQUIRIES = 'REQUEST_INQUIRIES';
 export const RECEIVE_INQUIRIES = 'RECEIVE_INQUIRIES';
 
@@ -69,13 +68,6 @@ export function completeTodo(index) {
 
 export function setVisibilityFilter(filter) {
 	return {type: SET_VISIBILITY_FILTER, filter}
-}
-
-export function setCurrentTab(tab) {
-	return {
-		type: SET_CURRENT_TAB,
-		tab
-	}
 }
 
 function requestInquiries() {

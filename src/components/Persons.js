@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import { Group, Container, NavBar, View } from 'amazeui-touch';
 
 class Persons extends Component {
     render() {
 
       return (
-        <div>
-        Persons
-        </div>
+        <Container {...this.props}>
+          
+        </Container>
       )
     }
 }
