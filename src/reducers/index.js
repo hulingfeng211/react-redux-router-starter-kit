@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux'
-import { REQUEST_INQUIRIES, RECEIVE_INQUIRIES } from '../actions'
+import { REQUEST_INQUIRIES, RECEIVE_INQUIRIES } from '../actionTypes'
 
 import todos from './todos';
 import visibilityFilter from './visibilityFilter';

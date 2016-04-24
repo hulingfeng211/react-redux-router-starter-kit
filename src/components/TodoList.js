@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import {List, Grid, Col} from 'amazeui-touch';
 
 import Todo from './Todo';
-import { fetchTodos, completeTodo, VisibilityFilters } from '../actions';
+import {VisibilityFilters } from '../actionTypes';
+import { fetchTodos, completeTodo } from '../actions';
 
 export default class TodoList extends Component {
   componentDidMount() {
