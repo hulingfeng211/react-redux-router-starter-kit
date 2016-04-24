@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import {REQUEST_TODOS, RECEIVE_TODOS, ADD_TODO, COMPLETE_TODO, SET_VISIBILITY_FILTER, VisibilityFilters, REQUEST_INQUIRIES, RECEIVE_INQUIRIES} from './actionTypes';
+import {REQUEST_TODOS, RECEIVE_TODOS, ADD_TODO, COMPLETE_TODO, SET_VISIBILITY_FILTER, VisibilityFilters, REQUEST_INQUIRIES, RECEIVE_INQUIRIES, REQUEST_PRODUCTS, RECEIVE_PRODUCTS} from './actionTypes';
 
 /*
  * 异步数据
@@ -68,5 +68,27 @@ export function fetchInquiries() {
 		fetch('/dist/getInquiries.json')
 		.then(response => response.json())
 		.then(json => dispatch(receiveInquiries(json.inquiries)))
+	}
+};
+
+function requestProducts() {
+	return {
+		type: REQUEST_PRODUCTS
+	}
+};
+
+function receiveProducts(products) {
+	return {
+		type: RECEIVE_PRODUCTS,
+		products
+	}
+};
+
+export function fetchProducts() {
+	return function(dispatch) {
+		dispatch(requestProducts());
+		fetch('/dist/getProducts.json')
+		.then(response => response.json())
+		.then(json => dispatch(receiveProducts(json.products)))
 	}
 };

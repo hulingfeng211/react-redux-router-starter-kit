@@ -1,15 +1,40 @@
 import React, { Component } from 'react';
-import { Group, Container, NavBar, View } from 'amazeui-touch';
+import { connect } from 'react-redux';
+import { Group, Container, NavBar, View, List } from 'amazeui-touch';
+
+import { fetchProducts } from '../actions';
 
 class Products extends Component {
-    render() {
+    componentDidMount() {
+		const { dispatch } = this.props;
+		dispatch(fetchProducts());
+	}
 
-      return (
-        <Container {...this.props}>
-          
-        </Container>
-      )
-    }
+	render() {
+
+		// 通过调用 connect() 注入:
+		const { dispatch, products } = this.props;
+		return (
+		    <Container {...this.props}>
+		      <Group
+		          header="产品列表"
+		          noPadded
+		        >
+		        <List>
+		          {products.map((product, index) =>
+		            <List.Item title={product.text} key={index} />
+		          )}
+		        </List>
+		        </Group>
+		    </Container>
+		)
+	}
 }
 
-export default Products;
+function select(state) {
+  return {
+    products: state.products
+  };
+}
+
+export default connect(select)(Products);
