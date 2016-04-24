@@ -1,22 +1,30 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import {List, Grid, Col} from 'amazeui-touch';
+import {List, Grid, Col, Badge} from 'amazeui-touch';
 
 import { setVisibilityFilter } from '../actions';
 
 class Filter extends Component {
   renderFilter(filter, name) {
     if (filter === this.props.visibilityFilter) {
-      return name;
+      return (
+        <Badge amStyle='success' >
+          {name}
+        </Badge>
+      )
     }
 
     return (
-      <a href='#' onClick={e => {
-        e.preventDefault();
-        this.onFilterChange(filter);
-      }}>
+      <Badge href="#"
+        amStyle='default'
+        onClick={e => {
+          e.preventDefault();
+          this.onFilterChange(filter);
+        }}
+      >
         {name}
-      </a>
+      </Badge>
+      
     )
   }
 
@@ -31,16 +39,16 @@ class Filter extends Component {
   render() {
     
     return (
-      <Grid className="doc-g">
-          <Col sm={12}>
+      <Grid className="doc-g" align="center">
+          <Col cols={6}>
         Show:
         {' '}
         {this.renderFilter('SHOW_ALL', 'All')}
-        {', '}
+        {' '}
         {this.renderFilter('SHOW_COMPLETED', 'Completed')}
-        {', '}
+        {' '}
         {this.renderFilter('SHOW_ACTIVE', 'Active')}
-        .
+        
           </Col>
       </Grid>
     );
