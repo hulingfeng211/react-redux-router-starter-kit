@@ -10,7 +10,7 @@ class Home extends Component {
 
     return (
       <View id="app-index">
-        <NavBar amStyle="primary" title="Onepage 3.0 Touch" />
+        <NavBar amStyle="primary" title="Onepage Touch" />
         <Container scrollable >
           <InquiryList />
         </Container>
