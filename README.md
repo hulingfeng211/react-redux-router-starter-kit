@@ -3,21 +3,22 @@
 # react-redux-router starter kit
 
 
-> react/redux新手入门demo，基于react、redux、react-router-redux、amazeui-touch开发，gulp+webpack打包构建
+> The starter is used react, redux, react-router-redux, amazeui-touch, gulp and webpack
 
-### 使用说明
+## Install
 
-#### 安装依赖:
+
+### Install the dependency:
 ```
 npm install
 ```
 
-#### 运行demo
+### Run the demo
 ```
 npm start
 ```
 
-#### 生产环境构建
+### Build
 ```
 npm run build
 ```
