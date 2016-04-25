@@ -5,20 +5,20 @@
 
 > The starter is used react, redux, react-router-redux, amazeui-touch, gulp and webpack
 
-## Install
+## Instructions
 
 
-### Install the dependency:
+#### Install the dependency:
 ```
 npm install
 ```
 
-### Run the demo
+#### Run the demo
 ```
 npm start
 ```
 
-### Build
+#### Build
 ```
 npm run build
 ```
