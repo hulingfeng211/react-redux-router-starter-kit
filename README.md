@@ -8,19 +8,17 @@ react/redux新手入门demo，基于react、redux、react-router-redux、amazeui
 ### 使用说明
 --
 
-安装依赖:
+#### 安装依赖:
 ```
 npm install
 ```
 
-运行demo
+#### 运行demo
 ```
 npm start
 ```
 
-生产环境构建
+#### 生产环境构建
 ```
 npm run build
 ```
-
-
