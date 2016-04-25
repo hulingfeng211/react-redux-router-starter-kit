@@ -3,7 +3,7 @@
 # react-redux-router starter kit
 
 
-> The starter is used react, redux, react-router-redux, amazeui-touch, gulp and webpack
+> The Demo built with react, redux, react-router-redux, amazeui-touch, gulp and webpack
 
 ## Instructions
 
