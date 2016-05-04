@@ -4,13 +4,16 @@ import { Container, NavBar, View} from 'amazeui-touch';
 import InquiryList from './InquiryList';
 
 class Home extends Component {
+  static defaultProps = {
+    transition: 'rfr'
+  };
 
   render() {
     let component = this.props.params.component;
 
     return (
       <View id="app-index">
-        <NavBar amStyle="primary" title="Onepage Touch" />
+        <NavBar amStyle="primary" title="My App" />
         <Container scrollable >
           <InquiryList />
         </Container>
@@ -18,9 +21,5 @@ class Home extends Component {
     )
   }
 }
-
-Home.defaultProps = {
-  transition: 'rfr'
-};
 
 export default Home;
