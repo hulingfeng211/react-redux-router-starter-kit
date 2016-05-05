@@ -40,6 +40,7 @@ gulp.task("webpack-dev-server", function(callback) {
     var compiler = webpack(webpackConfig);
 
     new WebpackDevServer(compiler, {
+    	hot: true,
     	publicPath: webpackConfig.output.publicPath,
     	stats: { colors: true },
 		noInfo:true
@@ -51,6 +52,7 @@ gulp.task("webpack-dev-server", function(callback) {
         // keep the server alive or continue?
         // callback();
     });
+
 });
 
 gulp.task("webpack:build", function(callback) {

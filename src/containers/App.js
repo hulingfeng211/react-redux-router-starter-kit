@@ -20,7 +20,6 @@ class App extends Component {
 
       return (
         <View id="app-index">
-          
           <Container direction="column" id="container">
             <Container transition={transition} >
               {React.cloneElement(children, {key: location.key})}
