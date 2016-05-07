@@ -2,23 +2,31 @@
 
 # react-redux-router starter kit
 
-
-> The Demo built with react, redux, react-router-redux, amazeui-touch, gulp and webpack
-
-## Instructions
+> 这是一个基于react开发的Demo
 
 
-#### Install the dependency:
+- redux做应用状态框架
+- react-router-redux作路由
+- amazeui-touch做ui框架
+- webpack做模块打包工具
+- babel做es6和jsx编译
+- gulp作为任务流管理器
+
+
+## 介绍
+
+
+#### 安装依赖:
 ```
 npm install
 ```
 
-#### Run the demo
+#### 运行
 ```
 npm start
 ```
 
-#### Build
+#### 打包
 ```
 npm run build
 ```
