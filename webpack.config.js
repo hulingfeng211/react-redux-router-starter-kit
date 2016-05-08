@@ -11,8 +11,9 @@ module.exports = {
 	    ]
 	},
 	output: {
+		contentBase: path.join(__dirname, "dist"),
 		path: path.join(__dirname, "dist"),
-		publicPath: "http://localhost:7070/dist/",
+		publicPath: "http://localhost:7070/",
 		filename: '[name].bundle.js'
 	},
 	plugins: [
