@@ -5,14 +5,14 @@ var CommonsChunkPlugin = require("./lib/optimize/CommonsChunkPlugin");
 module.exports = {
 	entry: {
 		main: [
-			'webpack-dev-server/client?http://localhost:8080',
+			'webpack-dev-server/client?http://localhost:7070',
 			'webpack/hot/only-dev-server', 
 			'./src/main'
 	    ]
 	},
 	output: {
 		path: path.join(__dirname, "dist"),
-		publicPath: "http://localhost:8080/dist/",
+		publicPath: "http://localhost:7070/dist/",
 		filename: '[name].bundle.js'
 	},
 	plugins: [

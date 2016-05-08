@@ -14,7 +14,7 @@ class Home extends Component {
 
     return (
       <View id="app-index">
-        <NavBar amStyle="primary" title="My App3" />
+        <NavBar amStyle="primary" title="My App9" />
         <Container scrollable >
           <InquiryList />
         </Container>

@@ -43,11 +43,12 @@ gulp.task("webpack-dev-server", function(callback) {
     	hot: true,
     	publicPath: webpackConfig.output.publicPath,
     	stats: { colors: true },
+    	historyApiFallback: true,
 		noInfo:true
-    }).listen(8080, "localhost", function(err) {
+    }).listen(7070, "localhost", function(err) {
         if(err) throw new gutil.PluginError("webpack-dev-server", err);
         // Server listening
-        gutil.log("[webpack-dev-server]", "http://localhost:8080/");
+        gutil.log("[webpack-dev-server]", "http://localhost:7070/");
 
         // keep the server alive or continue?
         // callback();
