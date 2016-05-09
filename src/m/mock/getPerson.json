@@ -1,5 +1,5 @@
 {
-	"todos": [{
+	"person": [{
 		"text":"owen",
 		"completed": false
 	},

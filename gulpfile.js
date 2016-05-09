@@ -9,27 +9,27 @@ var webpackConfig = require("./webpack.config.js");
 
 //css
 gulp.task('style', function(){
-	gulp.src('./src/style/*.css')
+	gulp.src('./src/m/style/*.css')
 		.pipe(gulp.dest('./dist/style/'))
 });
 
 //amazeui style
 gulp.task('amazeui-to-dist', function(){
-	gulp.src('./src/style/amazeui/**/*')
+	gulp.src('./src/m/style/amazeui/**/*')
 		.pipe(gulp.dest('./dist/style/amazeui/'))
-	gulp.src('./src/style/amazeui-touch/**/*')
+	gulp.src('./src/m/style/amazeui-touch/**/*')
 		.pipe(gulp.dest('./dist/style/amazeui-touch/'))
 });
 
 //mock data
 gulp.task('mock-data', function(){
-	gulp.src('./src/mock/*.json')
+	gulp.src('./src/m/mock/*.json')
 		.pipe(gulp.dest('./dist/'))
 });
 
 // 监视源文件变化自动编译
 gulp.task('watch', () => {
-  gulp.watch('./src/style/*.css', ['style'], function(){
+  gulp.watch('./src/m/style/*.css', ['style'], function(){
   	gutil.log('file watching...')
   });
 });

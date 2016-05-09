@@ -11,7 +11,7 @@ class Detail extends Component {
     let backNav = {
       component: 'a',
       icon: 'left-nav',
-      title: '返回2'
+      title: '返回'
     };
 
     const clickHandler = (item, e) => {

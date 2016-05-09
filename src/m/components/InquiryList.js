@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 import { List, Group, Container, NavBar, View } from 'amazeui-touch';
 
@@ -16,15 +17,24 @@ class InquiryList extends Component {
 
     // 通过调用 connect() 注入:
     const { dispatch, inquiries } = this.props;
+
+    const linkProps = {
+      to: '/m/products/article'
+    };
+
     return (
         <Container {...this.props}>
           <Group
-              header="xxxx列表1"
+              header="最新消息"
               noPadded
             >
             <List>
               {inquiries.map((inquiry, index) =>
-                <List.Item title={inquiry.text} key={index} />
+                <List.Item 
+                  title={inquiry.text}
+                  key={index}
+                  linkComponent={Link}
+                  linkProps={linkProps} />
               )}
             </List>
             </Group>

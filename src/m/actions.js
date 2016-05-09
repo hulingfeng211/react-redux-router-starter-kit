@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import {REQUEST_TODOS, RECEIVE_TODOS, ADD_TODO, COMPLETE_TODO, SET_VISIBILITY_FILTER, VisibilityFilters, REQUEST_INQUIRIES, RECEIVE_INQUIRIES, REQUEST_PRODUCTS, RECEIVE_PRODUCTS} from './actionTypes';
+import {REQUEST_TODOS, RECEIVE_TODOS, ADD_TODO, COMPLETE_TODO, SET_VISIBILITY_FILTER, VisibilityFilters, REQUEST_INQUIRIES, RECEIVE_INQUIRIES, REQUEST_PRODUCTS, RECEIVE_PRODUCTS, REQUEST_PERSON, RECEIVE_PERSON} from './actionTypes';
 
 /*
  * 异步数据
@@ -49,6 +49,7 @@ export function setVisibilityFilter(filter) {
 	return {type: SET_VISIBILITY_FILTER, filter}
 }
 
+//INQUIRIES
 function requestInquiries() {
 	return {
 		type: REQUEST_INQUIRIES
@@ -71,6 +72,7 @@ export function fetchInquiries() {
 	}
 };
 
+//PRODUCTS
 function requestProducts() {
 	return {
 		type: REQUEST_PRODUCTS
@@ -90,5 +92,28 @@ export function fetchProducts() {
 		fetch('/m/dist/getProducts.json')
 		.then(response => response.json())
 		.then(json => dispatch(receiveProducts(json.products)))
+	}
+};
+
+//PERSON
+function requestPerson() {
+	return {
+		type: REQUEST_PERSON
+	}
+};
+
+function receivePerson(person) {
+	return {
+		type: RECEIVE_PERSON,
+		person
+	}
+};
+
+export function fetchPerson() {
+	return function(dispatch) {
+		dispatch(requestPerson());
+		fetch('/m/dist/getPerson.json')
+		.then(response => response.json())
+		.then(json => dispatch(receivePerson(json.person)))
 	}
 };

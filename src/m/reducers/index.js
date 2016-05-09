@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux'
-import { REQUEST_INQUIRIES, RECEIVE_INQUIRIES, REQUEST_PRODUCTS, RECEIVE_PRODUCTS } from '../actionTypes'
+import { REQUEST_INQUIRIES, RECEIVE_INQUIRIES, REQUEST_PRODUCTS, RECEIVE_PRODUCTS, REQUEST_PERSON, RECEIVE_PERSON } from '../actionTypes'
 
 import todos from './todos';
 import visibilityFilter from './visibilityFilter';
@@ -27,11 +27,23 @@ function products(state = [], action) {
 	}
 }
 
+function person(state = [], action) {
+	switch(action.type){
+		case REQUEST_PERSON:
+			return state;
+		case RECEIVE_PERSON:
+			return action.person;
+		default:
+			return state;
+	}
+}
+
 const todoApp = combineReducers({
 	visibilityFilter,
 	todos,
 	inquiries,
 	products,
+	person,
 	"routing": routerReducer
 });
 
