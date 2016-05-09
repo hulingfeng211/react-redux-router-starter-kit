@@ -21,7 +21,7 @@ function receiveTodos(todos) {
 export function fetchTodos() {
 	return function(dispatch) {
 		dispatch(requestTodos());
-		fetch('/dist/getTodos.json')
+		fetch('/m/dist/getTodos.json')
 		.then(response => response.json())
 		.then(json => dispatch(receiveTodos(json.todos)))
 	}
@@ -65,7 +65,7 @@ function receiveInquiries(inquiries) {
 export function fetchInquiries() {
 	return function(dispatch) {
 		dispatch(requestInquiries());
-		fetch('/dist/getInquiries.json')
+		fetch('/m/dist/getInquiries.json')
 		.then(response => response.json())
 		.then(json => dispatch(receiveInquiries(json.inquiries)))
 	}
@@ -87,7 +87,7 @@ function receiveProducts(products) {
 export function fetchProducts() {
 	return function(dispatch) {
 		dispatch(requestProducts());
-		fetch('/dist/getProducts.json')
+		fetch('/m/dist/getProducts.json')
 		.then(response => response.json())
 		.then(json => dispatch(receiveProducts(json.products)))
 	}

@@ -7,9 +7,9 @@ import Home from './components/Home';
 import Detail from './components/Detail';
 
 const routes = (
-  <Route path="/" component={App}>
+  <Route path="/m" component={App}>
     <IndexRoute component={Home}/>
-    <Route path=":component" component={Detail}/>
+    <Route path="/m/:component" component={Detail}/>
   </Route>
 )
 

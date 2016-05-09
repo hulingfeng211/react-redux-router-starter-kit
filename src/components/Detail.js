@@ -18,9 +18,9 @@ class Detail extends Component {
     let backNav = {
       component: Link,
       icon: 'left-nav',
-      title: '返回',
+      title: '返回1',
       props: {
-        to: '/'
+        to: '/m'
       }
     };
 

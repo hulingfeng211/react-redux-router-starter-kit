@@ -9,7 +9,7 @@ var config =  require('./webpack.config');
 
 var app = express()
 
-app.use('/dist', proxy(url.parse('http://localhost:7070/')));
+app.use('/m/dist', proxy(url.parse('http://localhost:7070/')));
 
 var compiler = webpack(config);
 
@@ -24,10 +24,14 @@ var server = new WebpackDevServer(compiler, {
         return console.log(err);
     }
 
-    console.log('Listening at http://localhost:7070/');
+    console.log('webpack-dev-server at http://localhost:7070/');
 });
 
-app.get('*', function(req, res) {
+app.get('/m', function(req, res) {
+  res.sendFile(__dirname + '/index.html');
+})
+
+app.get('/m/*', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 })
 
@@ -35,5 +39,5 @@ app.listen(8080, function (err, result) {
 	if (err) {
         return console.log(err);
     }
-  	console.log('Server listening on http://localhost:8080, Ctrl+C to stop')
+  	console.log('Node-Web-Server at http://localhost:8080, Ctrl+C to stop')
 })

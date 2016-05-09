@@ -17,7 +17,7 @@ class Products extends Component {
 		return (
 		    <Container {...this.props}>
 		      <Group
-		          header="产品列表"
+		          header="产品列表1"
 		          noPadded
 		        >
 		        <List>
