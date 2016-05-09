@@ -1,41 +1,39 @@
 import React, {Component} from 'react'
-import { Link } from 'react-router'
-import { NavBar, View } from 'amazeui-touch';
+import { connect } from 'react-redux';
+import { goBack } from 'react-router-redux'
 
-import * as Components from '../components';
+import { NavBar, View } from 'amazeui-touch';
 
 class Detail extends Component {
 
   render() {
 
-    let component = this.props.params.component;
-
-    if (component) {
-      component = component.charAt(0).toUpperCase() + component.slice(1);
-    }
-
-    let Component = Components[component] || NotFound;
     let backNav = {
-      component: Link,
+      component: 'a',
       icon: 'left-nav',
-      title: '返回1',
-      props: {
-        to: '/m'
-      }
+      title: '返回2'
+    };
+
+    const clickHandler = (item, e) => {
+      e.preventDefault();
+
+      const { dispatch } = this.props;
+      dispatch(goBack());
     };
 
     return (
       <View>
         <NavBar
-          title={component}
+          title="文章页"
           leftNav={[backNav]}
           amStyle="primary"
+          onSelect={clickHandler}
         />
-        <Component scrollable className="sk-demos" />
+        hello world
       </View>
       )
 
   }
 };
 
-export default Detail;
+export default connect()(Detail);

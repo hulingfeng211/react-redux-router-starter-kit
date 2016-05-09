@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router'
 import { Group, Container, NavBar, View, List } from 'amazeui-touch';
 
 import { fetchProducts } from '../actions';
@@ -14,6 +15,11 @@ class Products extends Component {
 
 		// 通过调用 connect() 注入:
 		const { dispatch, products } = this.props;
+
+		const linkProps = {
+			to: '/m/products/article'
+		};
+
 		return (
 		    <Container {...this.props}>
 		      <Group
@@ -22,7 +28,7 @@ class Products extends Component {
 		        >
 		        <List>
 		          {products.map((product, index) =>
-		            <List.Item title={product.text} key={index} />
+		            <List.Item title={product.text} key={index} linkComponent={Link} linkProps={linkProps} />
 		          )}
 		        </List>
 		        </Group>

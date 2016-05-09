@@ -13,6 +13,7 @@ app.use('/m/dist', proxy(url.parse('http://localhost:7070/')));
 
 var compiler = webpack(config);
 
+// webpack-dev-server
 var server = new WebpackDevServer(compiler, {
 	contentBase: config.output.contentBase,
     publicPath: config.output.publicPath,
@@ -41,6 +42,7 @@ app.get('/demo', function(req, res) {
   res.sendFile(__dirname + '/public/demo.html');
 })
 
+// node-web-server
 app.listen(8080, function (err, result) {
 	if (err) {
         return console.log(err);
