@@ -3,7 +3,6 @@ import { Container, NavBar, View} from 'amazeui-touch';
 
 import InquiryList from './InquiryList';
 
-
 class Home extends Component {
   static defaultProps = {
     transition: 'rfr'
@@ -14,7 +13,7 @@ class Home extends Component {
 
     return (
       <View id="app-index">
-        <NavBar amStyle="primary" title="My App1" />
+        <NavBar amStyle="primary" title="My App12" />
         <Container scrollable >
           <InquiryList />
         </Container>

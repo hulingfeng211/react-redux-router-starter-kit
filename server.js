@@ -27,12 +27,18 @@ var server = new WebpackDevServer(compiler, {
     console.log('webpack-dev-server at http://localhost:7070/');
 });
 
+//m site
 app.get('/m', function(req, res) {
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/public/m.html');
 })
 
 app.get('/m/*', function(req, res) {
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/public/m.html');
+})
+
+//onepage demo
+app.get('/demo', function(req, res) {
+  res.sendFile(__dirname + '/public/demo.html');
 })
 
 app.listen(8080, function (err, result) {

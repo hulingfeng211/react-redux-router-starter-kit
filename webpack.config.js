@@ -7,14 +7,14 @@ module.exports = {
 		main: [
 			'webpack-dev-server/client?http://localhost:7070',
 			'webpack/hot/only-dev-server', 
-			'./src/main'
+			'./src/m/main'
 	    ]
 	},
 	output: {
 		contentBase: path.join(__dirname, "dist"),
 		path: path.join(__dirname, "dist"),
 		publicPath: "http://localhost:7070/",
-		filename: '[name].bundle.js'
+		filename: '[name].m.bundle.js'
 	},
 	plugins: [
         new CommonsChunkPlugin({
