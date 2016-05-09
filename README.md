@@ -13,7 +13,7 @@
 - gulp作为任务流管理器
 
 
-## 介绍
+### 介绍
 > 这个demo实现了基本的app功能，以及时间旅行（time-travel）和热重载（react-hot-loader）等好玩功能
 
 #### 安装依赖:
