@@ -10,10 +10,10 @@ class App extends Component {
 
     render() {
       let {
-      location,
-      params,
-      children,
-      ...props
+        location,
+        params,
+        children,
+        ...props
       } = this.props;
 
       let transition = children.props.transition || 'sfr';

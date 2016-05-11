@@ -5,7 +5,7 @@ import InquiryList from './InquiryList';
 
 class Home extends Component {
   static defaultProps = {
-    transition: 'rfr'
+    transition: 'sfl'
   };
 
   render() {

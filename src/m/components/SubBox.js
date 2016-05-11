@@ -4,7 +4,11 @@ import { NavBar, View } from 'amazeui-touch';
 
 import * as Components from '../components';
 
-class Detail extends Component {
+class SubBox extends Component {
+
+  static defaultProps = {
+    transition: 'sfr'
+  };
 
   render() {
 
@@ -18,7 +22,7 @@ class Detail extends Component {
     let backNav = {
       component: Link,
       icon: 'left-nav',
-      title: '返回',
+      title: '返回3',
       props: {
         to: '/m'
       }
@@ -34,8 +38,7 @@ class Detail extends Component {
         <Currentcomponent scrollable className="sk-demos" />
       </View>
       )
-
   }
 };
 
-export default Detail;
+export default SubBox;

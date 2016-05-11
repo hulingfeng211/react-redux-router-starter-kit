@@ -11,7 +11,7 @@ class Detail extends Component {
     let backNav = {
       component: 'a',
       icon: 'left-nav',
-      title: '返回'
+      title: '返回2'
     };
 
     const clickHandler = (item, e) => {
@@ -24,7 +24,7 @@ class Detail extends Component {
     return (
       <View>
         <NavBar
-          title="文章页"
+          title="文章页2"
           leftNav={[backNav]}
           amStyle="primary"
           onSelect={clickHandler}
