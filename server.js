@@ -1,4 +1,5 @@
 var express = require('express');
+var compression = require('compression')
 var webpack = require('webpack');
 var WebpackDevServer = require ('webpack-dev-server');
 var webpackDevMiddleware = require("webpack-dev-middleware");
@@ -8,6 +9,8 @@ var url = require('url');
 var config;
 var ENV = process.env.NODE_ENV;
 var app = express()
+
+app.use(compression());
 
 if(ENV === 'dev') {
 

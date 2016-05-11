@@ -21,14 +21,19 @@
 npm install
 ```
 
-#### 运行
+#### 普通运行
 ```
 npm start
 ```
 
+#### 开发调试
+```
+npm run dev
+```
+
 #### 打包
 ```
-npm run build
+gulp build
 ```
 
 #### 打开浏览器，访问
