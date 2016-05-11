@@ -9,13 +9,7 @@ var config;
 var ENV = process.env.NODE_ENV;
 var app = express()
 
-if(ENV === 'production') {
-
-  config =  require('./webpack.config');
-
-  app.use('/m/dist', express.static(__dirname + '/dist'));
-
-} else if( ENV === 'dev') {
+if(ENV === 'dev') {
 
   config =  require('./webpack.dev.config');
 
@@ -37,6 +31,13 @@ if(ENV === 'production') {
 
       console.log('webpack-dev-server at http://localhost:7070');
   });
+
+
+} else {
+
+  config =  require('./webpack.config');
+
+  app.use('/m/dist', express.static(__dirname + '/dist'));
 }
 
 console.log('param:', process.env.NODE_ENV)

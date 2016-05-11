@@ -15,8 +15,8 @@ gulp.task('style', function(){
 
 //amazeui style
 gulp.task('amazeui-to-dist', function(){
-	gulp.src('./src/m/style/amazeui/**/*')
-		.pipe(gulp.dest('./dist/style/amazeui/'))
+	//gulp.src('./src/m/style/amazeui/**/*')pipe(gulp.dest('./dist/style/amazeui/'))
+
 	gulp.src('./src/m/style/amazeui-touch/**/*')
 		.pipe(gulp.dest('./dist/style/amazeui-touch/'))
 });
