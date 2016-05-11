@@ -4,19 +4,24 @@ var CommonsChunkPlugin = require("./lib/optimize/CommonsChunkPlugin");
 
 module.exports = {
 	entry: {
-		main: './src/m/main'
+		main: [
+			'webpack-dev-server/client?http://localhost:7070',
+			'webpack/hot/only-dev-server', 
+			'./src/m/main'
+	    ]
 	},
 	output: {
 		contentBase: path.join(__dirname, "dist"),
 		path: path.join(__dirname, "dist"),
-		publicPath: "/dist",
+		publicPath: "http://localhost:7070/",
 		filename: '[name].m.bundle.js'
 	},
 	plugins: [
         new CommonsChunkPlugin({
             name: "commons",
             chunks: ["main"]
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin()
     ],
 	module: {
 		loaders: [

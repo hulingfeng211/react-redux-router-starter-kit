@@ -22,7 +22,7 @@ class SubBox extends Component {
     let backNav = {
       component: Link,
       icon: 'left-nav',
-      title: '返回3',
+      title: '返回',
       props: {
         to: '/m'
       }

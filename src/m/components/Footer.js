@@ -25,7 +25,7 @@ class Footer extends Component {
   }
 
   onHandleClick() {
-    console.log(this);
+    //console.log(this);
   }
 }
 

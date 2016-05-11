@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "gulp",
+    "start": "NODE_ENV=production node server.js",
+    "dev": "NODE_ENV=dev node server.js",
     "build": "gulp build"
   },
   "dependencies": {
