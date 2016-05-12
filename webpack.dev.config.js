@@ -8,7 +8,12 @@ module.exports = {
 			'webpack-dev-server/client?http://localhost:7070',
 			'webpack/hot/only-dev-server', 
 			'./src/m/main'
-	    ]
+	    ],
+	    'demo/main': [
+			'webpack-dev-server/client?http://localhost:7070',
+			'webpack/hot/only-dev-server', 
+			'./src/demo/main'
+	    ],
 	},
 	output: {
 		contentBase: path.join(__dirname, "dist"),
@@ -39,7 +44,8 @@ module.exports = {
 		      exclude: /(node_modules|bower_components)/,
 		      loader: 'babel',
 		      query: {
-		        presets: ['react', 'es2015', 'stage-0']
+		        presets: ['react', 'es2015', 'stage-0'],
+		        plugins: ["antd", {}]
 		      }
 		    }
 		]
