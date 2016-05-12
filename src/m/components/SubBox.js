@@ -1,14 +1,12 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router'
+import * as test from 'react-router-redux'
+import {LOCATION_CHANGE, routerActions} from 'react-router-redux'
 import { NavBar, View } from 'amazeui-touch';
 
 import * as Components from '../components';
 
 class SubBox extends Component {
-
-  static defaultProps = {
-    transition: 'sfr'
-  };
 
   render() {
 

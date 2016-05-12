@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
+import { connect } from 'react-redux';
 import { Container, Group, TabBar, NavBar, View} from 'amazeui-touch'
 
 import Footer from '../components/Footer';
@@ -8,27 +8,42 @@ import DevTools from './DevTools';
 
 class App extends Component {
 
-    render() {
-      let {
-        location,
-        params,
-        children,
-        ...props
-      } = this.props;
+  componentWillMount(){
+    //控制转场动画方向
+    this.transitionHandler = 'sfr';
+  }
 
-      let transition = children.props.transition || 'sfr';
+  componentWillReceiveProps(nextProps) {
+    let location = this.props.location.pathname;
 
-      return (
-        <View id="app-index">
-          <Container direction="column" id="container">
-            <Container transition={transition} >
-              {React.cloneElement(children, {key: location.key})}
-            </Container>
-            <Footer {...this.props} />
-          </Container>
-        </View>
-      );
+    if(location.indexOf('article') !== -1){
+      this.transitionHandler = 'rfr';
+    } else {
+      this.transitionHandler = 'sfr';
     }
+  }
+
+  render() {
+    let {
+      location,
+      params,
+      children,
+      ...props
+    } = this.props;
+
+    let transition = this.transitionHandler;
+
+    return (
+      <View id="app-index">
+        <Container direction="column" id="container">
+          <Container transition={transition} >
+            {React.cloneElement(children, {key: location.key})}
+          </Container>
+          <Footer {...this.props} />
+        </Container>
+      </View>
+    );
+  }
 }
 
-export default App;
+export default connect()(App);
