@@ -6,24 +6,21 @@ var webpackDevMiddleware = require("webpack-dev-middleware");
 var proxy = require('proxy-middleware');
 var url = require('url');
 
-var config;
+var webpackDevConfig = require('./webpack.dev.config');
 var ENV = process.env.NODE_ENV;
 var app = express()
 
-app.use(compression());
 
 if(ENV === 'dev') {
-
-  config =  require('./webpack.dev.config');
 
   app.use('/m/dist', proxy(url.parse('http://localhost:7070/')));
 
   // webpack-dev-server
-  var compiler = webpack(config);
+  var compiler = webpack(webpackDevConfig);
 
   var server = new WebpackDevServer(compiler, {
-    contentBase: config.output.contentBase,
-      publicPath: config.output.publicPath,
+    contentBase: webpackDevConfig.output.contentBase,
+      publicPath: webpackDevConfig.output.publicPath,
       hot: true,
       historyApiFallback: true,
       noInfo: true
@@ -38,15 +35,13 @@ if(ENV === 'dev') {
 
 } else {
 
-  config =  require('./webpack.config');
+  app.use(compression());
 
   app.use('/m/dist', express.static(__dirname + '/dist'));
 }
 
-console.log('param:', process.env.NODE_ENV)
+
 //m site
-
-
 app.get('/m', function(req, res) {
   res.sendFile(__dirname + '/public/m.html');
 })

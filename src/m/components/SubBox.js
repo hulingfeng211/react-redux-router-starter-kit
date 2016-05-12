@@ -32,7 +32,6 @@ class SubBox extends Component {
       <View>
         <NavBar
           title={component}
-          leftNav={[backNav]}
           amStyle="primary"
         />
         <Currentcomponent scrollable className="sk-demos" />
