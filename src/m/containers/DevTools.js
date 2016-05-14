@@ -9,9 +9,9 @@ const DevTools = createDevTools(
   <DockMonitor toggleVisibilityKey='ctrl-h'
                changePositionKey='ctrl-k'
                defaultIsVisible={true}
-               defaultPosition='bottom'
+               defaultPosition='right'
                defaultSize={0.3}>
-    <SliderMonitor />
+    <LogMonitor expandActionRoot={true} expandStateRoot={true} />
   </DockMonitor>
 );
 

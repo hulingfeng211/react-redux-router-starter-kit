@@ -195,6 +195,7 @@ const App = React.createClass({
 		      <Col span={19}>
 		      	<Header />
 		      	<Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+		      	<t2 />
 		      </Col>
 		    </Row>
 		   
