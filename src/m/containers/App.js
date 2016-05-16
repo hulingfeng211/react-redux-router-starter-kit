@@ -41,7 +41,7 @@ class App extends Component {
           </Container>
           <Footer {...this.props} />
         </Container>
-        <DevTools />
+        {/* <DevTools /> */}
       </View>
     );
   }

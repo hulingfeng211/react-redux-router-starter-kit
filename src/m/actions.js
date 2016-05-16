@@ -19,7 +19,7 @@ function receiveTodos(todos) {
 };
 
 export function fetchTodos() {
-	return function(dispatch) {
+	return dispatch => {
 		dispatch(requestTodos());
 		fetch('/m/dist/getTodos.json')
 		.then(response => response.json())
@@ -64,7 +64,7 @@ function receiveInquiries(inquiries) {
 };
 
 export function fetchInquiries() {
-	return function(dispatch) {
+	return dispatch => {
 		dispatch(requestInquiries());
 		fetch('/m/dist/getInquiries.json')
 		.then(response => response.json())
@@ -87,7 +87,7 @@ function receiveProducts(products) {
 };
 
 export function fetchProducts() {
-	return function(dispatch) {
+	return dispatch => {
 		dispatch(requestProducts());
 		fetch('/m/dist/getProducts.json')
 		.then(response => response.json())
@@ -110,7 +110,7 @@ function receivePerson(person) {
 };
 
 export function fetchPerson() {
-	return function(dispatch) {
+	return dispatch => {
 		dispatch(requestPerson());
 		fetch('/m/dist/getPerson.json')
 		.then(response => response.json())

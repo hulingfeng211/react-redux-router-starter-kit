@@ -24,7 +24,7 @@ class Detail extends Component {
     return (
       <View>
         <NavBar
-          title="文章页2"
+          title="文章内容"
           leftNav={[backNav]}
           amStyle="primary"
           onSelect={clickHandler}
