@@ -1,5 +1,4 @@
-import React, { Component, PropTypes } from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react';
 import {Button, Grid, Col, Field} from 'amazeui-touch';
 import { connect } from 'react-redux';
 
