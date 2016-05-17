@@ -5,9 +5,9 @@ import { Provider } from 'react-redux'
 import { Router, browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 
-import App from './containers/App';
+import routes from './routers';
 
 render(
-    <App />,
+    <Router routes={routes} history={browserHistory} />,
     document.getElementById('container')
 );

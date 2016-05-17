@@ -1,28 +1,31 @@
 import React, { Component } from 'react';
-
 import { Row, Col } from 'antd';
 
+import AppHeader from '../components/AppHeader';
 import AppNav from '../components/AppNav';
 import AppTab from '../components/AppTab';
-import AppInbox from '../components/AppInbox';
 
-class App extends Component {
+import Mail from '../apps/Mail';
+
+class AppBox extends Component {
     render() {
         return (
-            <div>
-                <Row style={{ "marginBottom": "20px" }}>
-                    <div style={{ "marginLeft": "20px", "fontSize": "24px",borderBottom: '1px solid #666' }}>WEB APP LOGO</div>
-                </Row>
+            <div style={{height:'100%'}}>
                 <Row>
-                  <Col span={5}>
+                  <AppHeader />
+                </Row>
+
+                <Row style={{height: '100%'}}>
+                  <Col span={2} style={{width: '80px', height: '100%', backgroundColor: '#455670'}}>
                     <AppNav />
                   </Col>
-                  <Col span={19}>
+
+                  <Col span={22} style={{margin: '20px 0 0 20px'}}>
                     <Row>
                       <AppTab />
                     </Row>
                     <Row>
-                      <AppInbox />
+                      <Mail />
                     </Row>
                   </Col>
                 </Row>
@@ -31,4 +34,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default AppBox;

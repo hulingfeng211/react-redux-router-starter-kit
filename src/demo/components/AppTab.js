@@ -6,14 +6,14 @@ const TabPane = Tabs.TabPane;
 
 class AppTab extends Component{
 
-
     constructor(props, context) {
         super(props, context);
 
         this.newTabIndex = 0;
         const panes = [
-            <TabPane tab="收件箱" key="1">收件箱</TabPane>,
-            <TabPane tab="未读邮件" key="2">未读邮件</TabPane>,
+            <TabPane tab="云邮箱" key="1"></TabPane>,
+            <TabPane tab="客户管理" key="2"></TabPane>,
+            <TabPane tab="系统设置" key="3"></TabPane>
         ];
 
         this.state = {
@@ -65,11 +65,10 @@ class AppTab extends Component{
 
     render() {
         return (
-            <Tabs onChange={this._onChange} activeKey={this.state.activeKey}
-            type="editable-card" onEdit={this._onEdit}>
+            <Tabs onChange={this._onChange} activeKey={this.state.activeKey} type="editable-card" onEdit={this._onEdit}>
                 {this.state.panes}
             </Tabs>
-        );
+        )
     }
 
 }
