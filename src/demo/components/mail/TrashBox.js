@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Table, Tabs } from 'antd';
 
-class AppInbox extends Component {
+class Trashbox extends Component {
 
     constructor(props, context) {
         super(props, context);
@@ -28,32 +28,32 @@ class AppInbox extends Component {
             key: '1',
             name: '胡彦斌',
             age: 32,
-            address: '西湖区湖底公园1号',
+            address: '回收站123456789',
         }, {
             key: '2',
             name: '胡彦祖',
             age: 42,
-            address: '西湖区湖底公园1号',
+            address: '回收站123456789',
         }, {
             key: '3',
             name: '李大嘴',
             age: 32,
-            address: '西湖区湖底公园1号',
+            address: '回收站123456789',
         }, {
             key: '4',
             name: '胡彦斌',
             age: 32,
-            address: '西湖区湖底公园1号',
+            address: '回收站123456789',
         }, {
             key: '5',
             name: '胡彦祖',
             age: 42,
-            address: '西湖区湖底公园1号',
+            address: '回收站123456789',
         }, {
             key: '6',
             name: '李大嘴',
             age: 32,
-            address: '西湖区湖底公园1号',
+            address: '回收站123456789',
         }];
 
         // 通过 rowSelection 对象表明需要行选择
@@ -75,4 +75,4 @@ class AppInbox extends Component {
     }
 }
 
-export default AppInbox;
+export default Trashbox;

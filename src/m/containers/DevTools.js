@@ -11,8 +11,8 @@ const DevTools = createDevTools(
                defaultIsVisible={true}
                defaultPosition='right'
                defaultSize={0.3}>
-    <LogMonitor expandActionRoot={true} expandStateRoot={true} />
-	{/* <SliderMonitor /> */}
+    
+	<SliderMonitor />
   </DockMonitor>
 );
 

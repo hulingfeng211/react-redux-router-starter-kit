@@ -8,7 +8,13 @@ import AppTab from '../components/AppTab';
 import Mail from '../apps/Mail';
 
 class AppBox extends Component {
+
     render() {
+        let {
+          children,
+          ...props
+        } = this.props;
+
         return (
             <div style={{height:'100%'}}>
                 <Row>
@@ -25,7 +31,7 @@ class AppBox extends Component {
                       <AppTab />
                     </Row>
                     <Row>
-                      <Mail />
+                      {children}
                     </Row>
                   </Col>
                 </Row>

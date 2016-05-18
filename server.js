@@ -55,6 +55,10 @@ app.get('/demo', function(req, res) {
   res.sendFile(__dirname + '/public/demo.html');
 })
 
+app.get('/demo/*', function(req, res) {
+  res.sendFile(__dirname + '/public/demo.html');
+})
+
 // node-web-server
 app.listen(8080, function (err, result) {
 	if (err) {

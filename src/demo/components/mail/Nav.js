@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router'
 
 import { Menu, Icon } from 'antd';
 
@@ -36,14 +37,17 @@ class Nav extends Component {
         selectedKeys={[this.state.current]}
         mode="inline"
         onSelect={this._handleSelect}>
-        <SubMenu key="sub1" title={<span><Icon type="mail" /><span>导航一</span></span>}>
-          <MenuItemGroup title="分组1">
-            <Menu.Item key="inBox">收件箱</Menu.Item>
-            <Menu.Item key="sendBox">已发送</Menu.Item>
+        <SubMenu key="sub1">
+          <MenuItemGroup title="我的邮箱">
+            <Menu.Item key="inBox"><Link to={"/demo/mail/inbox"}>收件箱</Link></Menu.Item>
+            <Menu.Item key="draft"><Link to={"/demo/mail/draft"}>草稿箱</Link></Menu.Item>
+            <Menu.Item key="outbox"><Link to={"/demo/mail/outbox"}>已发送</Link></Menu.Item>
+            <Menu.Item key="deleted"><Link to={"/demo/mail/deleted"}>已删除</Link></Menu.Item>
+            <Menu.Item key="trash"><Link to={"/demo/mail/trash"}>回收站</Link></Menu.Item>
           </MenuItemGroup>
-          <MenuItemGroup title="分组2">
-            <Menu.Item key="3">草稿箱</Menu.Item>
-            <Menu.Item key="4">回收站</Menu.Item>
+          <MenuItemGroup title="管理邮箱">
+            <Menu.Item key="files">文件夹</Menu.Item>
+            <Menu.Item key="imap">IMAP设定</Menu.Item>
           </MenuItemGroup>
         </SubMenu>
       </Menu>
