@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import { REQUEST_MAILS, RECEIVE_MAILS } from '../consts/ActionTypes'
+import { REQUEST_ALL_MAILS, RECEIVE_ALL_MAILS } from '../consts/ActionTypes'
 
 /* 收件箱 */
 function requestAllMails() {
@@ -8,18 +8,19 @@ function requestAllMails() {
 	}
 };
 
-function receiveAllMails(mails) {
+function receiveAllMails(allMails) {
 	return {
 		type: RECEIVE_ALL_MAILS,
-		mails
+		allMails
 	}
 };
 
 export function fetchAllMails() {
 	return dispatch => {
-		dispatch(requestAllMails());
-		fetch('/mock/getAllMails.json')
+		dispatch(requestAllMails())
+
+		fetch('/demo/dist/getAllMails.json')
 		.then(response => response.json())
-		.then(json => dispatch(receiveAllMails(json.mails)))
+		.then(json => dispatch(receiveAllMails(json.data)))
 	}
 };

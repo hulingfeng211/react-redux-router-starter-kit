@@ -1,59 +1,31 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
 import { Table, Tabs } from 'antd';
+
+import { fetchAllMails } from '../../actions';
 
 class Inbox extends Component {
 
-    constructor(props, context) {
-        super(props, context);
+    componentDidMount() {
+        const { dispatch } = this.props;
+        dispatch(fetchAllMails());
     }
 
     render() {
 
         const columns = [{
-            title: '姓名',
+            title: '发件人',
             dataIndex: 'name',
+            width: '150px',
             render(text) {
                 return <a href="#">{text}</a>;
-            },
+            }
         }, {
-            title: '年龄',
-            dataIndex: 'age',
-        }, {
-            title: '住址',
-            dataIndex: 'address',
-        }];
-
-        const data = [{
-            key: '1',
-            name: '胡彦斌',
-            age: 32,
-            address: '西湖区湖底公园1号',
-        }, {
-            key: '2',
-            name: '胡彦祖',
-            age: 42,
-            address: '西湖区湖底公园1号',
-        }, {
-            key: '3',
-            name: '李大嘴',
-            age: 32,
-            address: '西湖区湖底公园1号',
-        }, {
-            key: '4',
-            name: '胡彦斌',
-            age: 32,
-            address: '西湖区湖底公园1号',
-        }, {
-            key: '5',
-            name: '胡彦祖',
-            age: 42,
-            address: '西湖区湖底公园1号',
-        }, {
-            key: '6',
-            name: '李大嘴',
-            age: 32,
-            address: '西湖区湖底公园1号',
+            title: '标题',
+            dataIndex: 'mailTitle',
+            render(text) {
+                return <a href="#">{text}</a>;
+            }
         }];
 
         // 通过 rowSelection 对象表明需要行选择
@@ -70,9 +42,15 @@ class Inbox extends Component {
         };
 
         return (
-            <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+            <Table rowSelection={rowSelection} columns={columns} dataSource={this.props.allMails} />
         )
     }
 }
 
-export default Inbox;
+function select(state) {
+  return {
+    allMails: state.mail
+  };
+}
+
+export default connect(select)(Inbox);

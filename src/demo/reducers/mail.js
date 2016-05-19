@@ -1,19 +1,11 @@
 import { REQUEST_ALL_MAILS, RECEIVE_ALL_MAILS } from '../consts/ActionTypes'
 
-const initialState = [
-  {
-    text: 'hello world',
-    read: false,
-    id: 0
-  }
-]
-
-export default function mails(state = initialState, action) {
+export default function mail(state = [], action) {
 	switch(action.type){
 		case REQUEST_ALL_MAILS:
 			return state;
 		case RECEIVE_ALL_MAILS:
-			return action.mails;
+			return action.allMails;
 		default:
 			return state;
 	}

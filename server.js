@@ -12,6 +12,7 @@ var app = express()
 
 
 if(ENV === 'dev') {
+  app.use('/demo/dist', proxy(url.parse('http://localhost:7070/')));
 
   app.use('/m/dist', proxy(url.parse('http://localhost:7070/')));
 
@@ -39,7 +40,6 @@ if(ENV === 'dev') {
 
   app.use('/m/dist', express.static(__dirname + '/dist'));
 }
-
 
 //m site
 app.get('/m', function(req, res) {

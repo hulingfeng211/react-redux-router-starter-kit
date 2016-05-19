@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
-import mails from './mails'
+import mail from './mail'
 
+//整体业务模型
 const rootReducer = combineReducers({
-  mails,
+  "mail": mail,
   "routing": routerReducer
 })
 
