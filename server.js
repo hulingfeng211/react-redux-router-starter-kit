@@ -12,7 +12,6 @@ var app = express()
 
 
 if(ENV === 'dev') {
-  app.use('/demo/dist', proxy(url.parse('http://localhost:7070/')));
 
   app.use('/m/dist', proxy(url.parse('http://localhost:7070/')));
 
@@ -33,7 +32,6 @@ if(ENV === 'dev') {
       console.log('webpack-dev-server at http://localhost:7070');
   });
 
-
 } else {
 
   app.use(compression());
@@ -48,15 +46,6 @@ app.get('/m', function(req, res) {
 
 app.get('/m/*', function(req, res) {
   res.sendFile(__dirname + '/public/m.html');
-})
-
-//onepage demo
-app.get('/demo', function(req, res) {
-  res.sendFile(__dirname + '/public/demo.html');
-})
-
-app.get('/demo/*', function(req, res) {
-  res.sendFile(__dirname + '/public/demo.html');
 })
 
 // node-web-server

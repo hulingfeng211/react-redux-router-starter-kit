@@ -8,12 +8,7 @@ module.exports = {
 			'webpack-dev-server/client?http://localhost:7070',
 			'webpack/hot/only-dev-server', 
 			'./src/m/main'
-	    ],
-	    'demo/main': [
-			'webpack-dev-server/client?http://localhost:7070',
-			'webpack/hot/only-dev-server', 
-			'./src/demo/main'
-	    ],
+	    ]
 	},
 	output: {
 		contentBase: path.join(__dirname, "dist"),
